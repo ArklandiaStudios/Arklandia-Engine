@@ -1113,12 +1113,9 @@ mod test {
         dispatcher.register_with_aliases(command(), &["Plugin-Alias"]);
         dispatcher.disable_command("PLUGIN-COMMAND");
         dispatcher.deactivate_commands_from_source("test-plugin");
+        // Arklandia : un plugin qui enregistre la commande lève la désactivation par configuration.
         dispatcher.register_with_aliases(command(), &["Plugin-Alias"]);
-        assert!(
-            dispatcher
-                .execute_input("plugin-command", &source)
-                .is_err_and(|error| error.error_type == &DISPATCHER_UNKNOWN_COMMAND)
-        );
+        assert_eq!(dispatcher.execute_input("plugin-command", &source), Ok(1));
     }
 
     #[test]
