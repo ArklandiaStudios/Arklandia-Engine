@@ -1,0 +1,257 @@
+# Exemple de pumpkin.toml d'Arklandia Engine : valeurs par défaut de la version 0.1.0+mc26.3.
+# Le fichier est créé et complété automatiquement par le moteur ; ne gardez que les clés que vous changez
+# (toute clé absente prend sa valeur par défaut). Voir docs/CONFIGURATION.md.
+# seed (graine du monde) : absente = tirée au hasard à la création du monde.
+#
+# Sections propres à Arklandia : [operators] [analytics] [server_links] [messages] [private_messages]
+# [plugins] world_edit_threads, [commands.overrides.<nom>].
+
+accepts_transfers = true
+allow_chat_reports = false
+allow_end = true
+allow_nether = true
+config_version = 1
+default_difficulty = "Normal"
+default_gamemode = "Survival"
+default_level_name = "world"
+enforce_whitelist = false
+force_gamemode = false
+hardcore = false
+op_permission_level = 4
+scrub_ips = true
+spawn_protection = 16
+tps = 20.0
+use_favicon = true
+white_list = false
+[networking.java]
+address = "0.0.0.0:25565"
+enabled = true
+encryption = true
+keep_alive_time = 15
+max_players = 1000
+motd = "Un serveur propulsé par Arklandia Engine"
+online_mode = true
+simulation_distance = 10
+view_distance = 16
+[networking.bedrock]
+enabled = true
+chunk_caching = true
+max_players = 1000
+motd = "Un serveur propulsé par Arklandia Engine"
+online_mode = true
+replace_username_spaces = true
+simulation_distance = 10
+username_prefix = ""
+view_distance = 16
+
+[advancement]
+save_advancements = true
+
+[analytics]
+enabled = false
+
+[chat]
+format = "<{DISPLAYNAME}> {MESSAGE}"
+
+[chat.anti_spam]
+decay_per_tick = 1
+enabled = true
+message_cost = 20
+ops_bypass = true
+spam_threshold = 200
+
+[commands]
+broadcast_console_to_ops = true
+default_op_level = 0
+log_console = true
+use_console = true
+use_tty = true
+
+[commands.overrides]
+
+[fun]
+april_fools = true
+
+[logging]
+color = true
+enabled = true
+file = "latest.log"
+level = "info"
+target = false
+thread_ids = false
+threads = false
+timestamp = true
+timestamp_format = "[hour]:[minute]:[second]"
+
+[messages]
+first_join = "&8[&6★&8] &7Bienvenue à &f{player}&7 sur Arklandia !"
+join = "&8[&a+&8] &7{player}"
+quit = "&8[&c-&8] &7{player}"
+welcome = ""
+
+[networking.bedrock.authentication]
+connect_timeout = 5000
+enabled = true
+read_timeout = 5000
+
+[networking.bedrock.compression]
+enabled = true
+level = 4
+threshold = 256
+
+[networking.bedrock.nethernet]
+address = "0.0.0.0:19132"
+enabled = true
+external_ip = ""
+identity_key = "nethernet-key.der"
+stun_servers = []
+
+[networking.bedrock.packet_limiter]
+burst_capacity = 500.0
+enabled = true
+kick_message = "Kicked for spamming packets"
+max_packet_rate = 500.0
+
+[networking.java.authentication]
+connect_timeout = 5000
+enabled = true
+fallbacks = []
+prevent_proxy_connections = false
+profile_by_name_fallbacks = []
+profile_by_uuid_fallbacks = []
+read_timeout = 5000
+
+[networking.java.authentication.player_profile]
+allow_banned_players = false
+allowed_actions = ["FORCED_NAME_CHANGE", "USING_BANNED_SKIN"]
+
+[networking.java.authentication.textures]
+allowed_url_domains = [".minecraft.net", ".mojang.com"]
+allowed_url_schemes = ["http", "https"]
+enabled = true
+
+[networking.java.authentication.textures.types]
+cape = true
+elytra = true
+skin = true
+
+[networking.java.compression]
+enabled = true
+level = 4
+threshold = 256
+
+[networking.java.packet_limiter]
+burst_capacity = 500.0
+enabled = true
+kick_message = "Kicked for spamming packets"
+max_packet_rate = 500.0
+
+[networking.lan_broadcast]
+enabled = false
+
+[networking.proxy]
+enabled = false
+
+[networking.proxy.bungeecord]
+enabled = false
+secret = ""
+
+[networking.proxy.velocity]
+enabled = false
+secret = ""
+
+[networking.proxy.vine]
+enabled = false
+public_key = ""
+secret = ""
+
+[networking.query]
+address = "0.0.0.0:25565"
+enabled = false
+
+[networking.rcon]
+address = "0.0.0.0:25575"
+enabled = false
+max_connections = 10
+password = ""
+
+[networking.rcon.logging]
+commands = true
+logged_successfully = true
+quit = true
+wrong_password = true
+
+[operators]
+enabled = true
+
+[player_data]
+save_player_cron_interval = 300
+save_player_data = true
+
+[plugins]
+allowed_permissions = []
+blocked_permissions = []
+enabled = true
+hot_reload = false
+inherit_env = false
+loopback_only = false
+world_edit_threads = 0
+
+[plugins.overrides]
+
+[private_messages]
+empty_message = "&cLe message est vide."
+enabled = true
+format_received = "&8[&f{sender} &8→ &7Vous&8] &7{message}"
+format_sent = "&8[&7Vous &8→ &f{target}&8] &7{message}"
+no_reply_target = "&cPersonne à qui répondre."
+not_found = "&cJoueur introuvable."
+reply_hint = "&7Utilisation : &f/r <message>"
+reply_offline = "&c{target} s'est déconnecté."
+self_message = "&cVous ne pouvez pas vous écrire à vous-même."
+sound = ""
+spy_plugin = ""
+spy_timeout_ms = 250
+
+[pvp]
+enabled = true
+hurt_animation = true
+knockback = true
+protect_creative = true
+swing = true
+
+[recipe]
+send_recipes = true
+
+[resource_pack.bedrock]
+enabled = false
+force = false
+packs = []
+
+[resource_pack.java]
+enabled = false
+force = false
+prompt_message = ""
+sha1 = ""
+url = ""
+
+[server_links]
+announcements = ""
+bug_report = ""
+discord = ""
+enabled = true
+website = ""
+
+[server_links.custom]
+
+[world]
+autosave_ticks = 6000
+lighting = "default"
+
+[world.chunk]
+type = "anvil"
+write_in_place = false
+
+[world.chunk.compression]
+algorithm = "LZ4"
+level = 6
