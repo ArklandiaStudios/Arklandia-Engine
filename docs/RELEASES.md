@@ -1,6 +1,6 @@
 # Publication des versions
 
-Le binaire n'est **jamais** commité : il est joint aux Releases GitHub du dépôt privé.
+Le binaire n'est **jamais** commité : il est joint aux Releases GitHub du dépôt.
 
 ## Nommage
 

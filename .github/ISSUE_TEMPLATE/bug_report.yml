@@ -1,0 +1,59 @@
+name: Rapport de bug
+description: Signaler un comportement incorrect d'Arklandia Engine
+title: "[Bug] "
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Merci de renseigner un maximum d'informations. Les pull requests ne sont pas acceptées sur ce dépôt : seules les Issues le sont.
+        **Faille de sécurité ?** Ne l'écrivez pas ici : utilisez le signalement privé (lien dans le choix de modèle).
+  - type: input
+    id: version
+    attributes:
+      label: Version d'Arklandia Engine
+      description: Affichée au démarrage ou par la commande `/arkbug` (par exemple 0.1.0+mc26.3).
+      placeholder: "0.1.0+mc26.3"
+    validations:
+      required: true
+  - type: input
+    id: client
+    attributes:
+      label: Version du client Minecraft
+      placeholder: "26.3"
+    validations:
+      required: true
+  - type: textarea
+    id: plugins
+    attributes:
+      label: Plugins chargés
+      description: La ligne « Loaded N plugins: … » du démarrage (laissez vide s'il n'y en a pas).
+      render: text
+  - type: textarea
+    id: description
+    attributes:
+      label: Description du problème
+      description: Que se passe-t-il, et qu'attendiez-vous ?
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Étapes pour reproduire
+      placeholder: |
+        1. ...
+        2. ...
+        3. ...
+    validations:
+      required: true
+  - type: textarea
+    id: logs
+    attributes:
+      label: Journal du serveur
+      description: Extrait de `latest.log` autour du problème. Retirez les adresses IP, mots de passe et jetons avant de coller.
+      render: text
+  - type: textarea
+    id: environment
+    attributes:
+      label: Environnement
+      description: Système d'exploitation, hébergeur ou panel, options de `pumpkin.toml` utiles.

@@ -1,14 +1,16 @@
 # Arklandia Engine
 
-Dépôt **privé** du moteur de serveur Minecraft Java d'Arklandia. Arklandia Engine est un **fork de Pumpkin** (https://github.com/Pumpkin-MC/Pumpkin, base `204a94e`) : un serveur Minecraft écrit en Rust, modifié pour les besoins des serveurs Arklandia. Le nom « Pumpkin » appartient au projet d'origine ; ce dépôt n'est ni affilié à lui ni soutenu par ses auteurs (voir `NOTICE.md`).
+Moteur de serveur Minecraft Java d'Arklandia (dépôt **public**, code sous GPL v3). Arklandia Engine est un **fork de Pumpkin** (https://github.com/Pumpkin-MC/Pumpkin, base `204a94e`) : un serveur Minecraft écrit en Rust, modifié pour les besoins des serveurs Arklandia. Le nom « Pumpkin » appartient au projet d'origine ; ce dépôt n'est ni affilié à lui ni soutenu par ses auteurs (voir `NOTICE.md`).
 
 - Version : **0.1.0** (pré-version), build `0.1.0+mc26.3` : Minecraft Java 26.3, protocole 777.
 - Licence : **GNU GPL v3** (`LICENSE`), droits d'auteur d'origine conservés (`NOTICE.md`).
 - Binaire : `arklandia-engine`, publié sous la forme `arklandia-engine-<version>-linux-x86_64-musl`.
 
-## Licence et distribution
+## Licence et contributions
 
-Le dépôt est **privé**. La GPL v3 n'oblige à publier le code source que si un binaire est **distribué à un tiers** ; ce n'est pas prévu. Si un binaire est un jour remis à un tiers (y compris sous forme de Release publique ou de copie sur un serveur qui n'est pas le nôtre), il doit être accompagné du **code source complet correspondant, sous GPL v3**, et ne perdre aucune mention d'attribution d'origine. Les plugins Ark sont des programmes distincts, dans un dépôt séparé : ils communiquent avec le moteur par l'interface de plugins (`pumpkin-plugin-api` / `pumpkin-plugin-wit`, sous MIT OR Apache-2.0) et ne font pas partie de ce dépôt.
+- Le code est publié sous **GNU GPL v3** (`LICENSE`). Les mentions d'attribution d'origine sont conservées (`NOTICE.md`). Toute redistribution d'un binaire doit s'accompagner du code source complet correspondant, sous GPL v3.
+- Les **plugins Ark** sont des programmes distincts, sous licence propriétaire, dans un dépôt séparé et privé ; ils ne font pas partie de ce dépôt.
+- **Les pull requests ne sont pas acceptées** : seuls les collaborateurs peuvent en ouvrir. Pour signaler un bug ou proposer une idée, ouvrez une **Issue** (voir `CONTRIBUTING.md`). Pour une faille de sécurité, utilisez le signalement privé (voir `SECURITY.md`).
 
 ## Ce que le moteur ajoute à Pumpkin
 
