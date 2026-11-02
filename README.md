@@ -84,7 +84,6 @@ docs/            CONFIGURATION.md, RELEASES.md, pumpkin.toml.example
 scripts/         build.sh, make-release.sh
 CHANGES.md       modifications d'Arklandia par rapport à Pumpkin (datées)
 NOTICE.md        attributions
-MIGRATIONS-SUPPRIMEES.md   code de migration retiré
 ```
 
 Fichiers de l'amont supprimés (inutiles ici ou référençant les dépôts et images de Pumpkin) : CI GitHub, `Dockerfile`, `docker-compose.yml`, `egg-pumpkin.json`, fichiers Nix, `CODE_OF_CONDUCT.md`, `CONTRIBUTING.md`, `SECURITY.md`, `.devcontainer`, grande animation du README d'origine. Les mentions de droits d'auteur sont intactes.
