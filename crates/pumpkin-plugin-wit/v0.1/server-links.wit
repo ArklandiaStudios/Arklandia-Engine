@@ -1,0 +1,11 @@
+/// Read-only view of the server links configured in `[server_links]` of the engine configuration.
+///
+/// Optional interface: plugins compiled before it existed do not import it and keep loading.
+interface server-links {
+    /// Every non-empty link as (name, url). Names: "bug", "discord", "site", plus the keys of the
+    /// custom links of the configuration.
+    server-links: func() -> list<tuple<string, string>>;
+
+    /// One link by name (case-insensitive), or none when it is not configured.
+    get-server-link: func(name: string) -> option<string>;
+}

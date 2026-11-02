@@ -1,0 +1,10 @@
+/// Conversions between block states and their text form, such as
+/// `minecraft:oak_stairs[facing=north,half=bottom]`.
+interface blocks {
+    /// Turns a block state written as text into its state ID.
+    /// Missing properties take the block's default value.
+    parse-block-state: func(text: string) -> result<u16, string>;
+
+    /// Writes a block state as text, with the namespace and every property.
+    format-block-state: func(state: u16) -> string;
+}

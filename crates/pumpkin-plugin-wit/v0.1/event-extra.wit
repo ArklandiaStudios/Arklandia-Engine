@@ -1,0 +1,22 @@
+/// Additional context of the event currently being handled.
+///
+/// Event records are frozen to keep already compiled plugins loadable, so extra
+/// information (world, cause, entity type, block lists...) is read here instead.
+/// Every function only returns data while an event handler is running.
+interface event-extra {
+    use common.{block-pos};
+
+    /// Looks up one attribute of the current event. Common keys: "world" (world name),
+    /// "x"/"y"/"z" (block position), "entity-type", "spawn-reason", "cause",
+    /// "old-block", "new-block", "source-world".
+    get-attribute: func(key: string) -> option<string>;
+
+    /// All attributes of the current event.
+    get-attributes: func() -> list<tuple<string, string>>;
+
+    /// Blocks the current event is about to affect (explosions).
+    get-blocks: func() -> list<block-pos>;
+
+    /// Removes blocks from the list of the current event (explosions keep those blocks intact).
+    remove-blocks: func(blocks: list<block-pos>);
+}

@@ -1,0 +1,45 @@
+# Compilation
+target/
+target-*/
+debug/
+/release/
+/dist/
+**/*.rs.bk
+*.pdb
+
+# Binaires et archives : publiés dans les Releases GitHub, jamais dans l'historique
+*.tar.gz
+*.zip
+*.wasm
+*.cwasm
+
+# Données d'exécution d'un serveur de test (jamais dans le dépôt)
+/pumpkin.toml
+/features.toml
+/plugins/
+/world/
+/logs/
+/crash-reports/
+/data/
+/whitelist.json
+/ops.json
+/banned-*.json
+/usercache.json
+/nethernet-key.der
+/.pumpkin-server-id
+*.local.nbt
+
+# Résidus
+*.log
+*.bak
+*.bak-*
+*.avant-*
+*.tmp
+*perf.data*
+*flamegraph.svg
+__pycache__/
+.DS_Store
+.idea/
+.vscode/
+.direnv/
+node_modules/

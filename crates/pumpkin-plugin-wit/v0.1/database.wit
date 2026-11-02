@@ -1,0 +1,75 @@
+/// Direct access to external databases, performed by the server on behalf of the plugin.
+///
+/// The plugin needs the `network.tcp.connect` and `network.dns` permissions to open a connection.
+/// Connections are closed when the plugin is unloaded.
+interface database {
+    /// The database engines the server can talk to.
+    enum db-kind {
+        mysql,
+        mariadb,
+        postgres,
+        mongodb,
+        redis,
+    }
+
+    /// Everything needed to reach a database. Each field is separate, no URL is parsed.
+    record db-config {
+        kind: db-kind,
+        host: string,
+        port: u16,
+        /// Database name, schema or Redis database number.
+        database: string,
+        username: string,
+        password: string,
+        /// MongoDB only: the database that holds the user. Empty means `admin`.
+        auth-database: string,
+        /// Use TLS for the connection.
+        tls: bool,
+    }
+
+    /// A single value passed to or returned from a database.
+    variant db-value {
+        null,
+        boolean(bool),
+        integer(s64),
+        real(f64),
+        text(string),
+        blob(list<u8>),
+    }
+
+    /// The result of a SQL statement.
+    record sql-result {
+        columns: list<string>,
+        rows: list<list<db-value>>,
+        /// Rows changed by a statement that does not return rows.
+        affected: u64,
+    }
+
+    /// One statement of a transaction.
+    record sql-statement {
+        sql: string,
+        params: list<db-value>,
+    }
+
+    /// Opens a connection and returns its handle. Fails when the permissions are missing
+    /// or the database cannot be reached within a few seconds.
+    open: func(config: db-config) -> result<u32, string>;
+
+    /// Closes a connection. Unknown handles are ignored.
+    close: func(handle: u32);
+
+    /// Runs one statement on a MySQL, MariaDB or PostgreSQL connection.
+    /// Placeholders are `?` for MySQL/MariaDB and `$1`, `$2`, ... for PostgreSQL.
+    sql-run: func(handle: u32, statement: sql-statement) -> result<sql-result, string>;
+
+    /// Runs several statements in a single transaction. Nothing is kept when one of them fails.
+    sql-transaction: func(handle: u32, statements: list<sql-statement>) -> result<_, string>;
+
+    /// Runs a MongoDB command document, given as extended JSON, against the configured database.
+    /// Returns the reply document as extended JSON.
+    mongo-command: func(handle: u32, command-json: string) -> result<string, string>;
+
+    /// Runs a Redis command. A reply that is an array is flattened one level,
+    /// a missing value is `null`.
+    redis-command: func(handle: u32, args: list<list<u8>>) -> result<list<db-value>, string>;
+}
