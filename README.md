@@ -53,6 +53,8 @@ export RUST_MIN_STACK=536870912
 cargo build --release --target x86_64-unknown-linux-musl
 ```
 
+Réseau : wasmtime est une dépendance Git (`github.com/bytecodealliance/wasmtime`, révision figée dans `Cargo.toml`) ; la première compilation en a besoin, ou d'un cache Cargo déjà rempli (`~/.cargo/git`).
+
 `CARGO_TARGET_DIR` choisit le dossier de compilation. `CARGO_NET_OFFLINE=true` évite le réseau si les dépendances sont en cache. `vendor/rustyline` est une copie patchée de `rustyline`, nécessaire à la compilation (exclue du workspace, référencée par `[patch]`).
 
 ## Démarrer
