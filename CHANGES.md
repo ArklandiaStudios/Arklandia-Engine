@@ -10,7 +10,7 @@ Ce fichier regroupe, par thème, toutes les modifications faites par Arklandia ;
 - Binaire `arklandia-engine` (`[[bin]]` du crate `pumpkin`), bannière `Starting Arklandia Engine <version> (basé sur Pumpkin) Java Minecraft (Protocol 777)`, marque réseau `minecraft:brand` « Arklandia Engine » (écran F3), messages d'avertissement de build debug, rapport de crash, `/arkbug`, MOTD par défaut, nom de serveur Bedrock.
 - Conservés pour la compatibilité : crates `pumpkin-*`, paquet WIT `pumpkin:plugin`, API `pumpkin_plugin_api`, espaces de noms et permissions `pumpkin:…`, `pumpkin.toml`, dossiers de données, expéditeur IPC `"Pumpkin"`.
 - Le cache des plugins compilés (`.cwasm`) porte la version dans son nom : il est reconstruit une fois après le changement de version.
-- Retrait du code de migration propre aux anciennes versions du moteur (`MIGRATIONS-SUPPRIMEES.md`).
+- Retrait du code de migration propre aux anciennes versions du moteur.
 
 ## Configuration
 
